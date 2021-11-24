@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../dist/index.umd.js"></script>
+    <script src="../dist/index-canvas.umd.js"></script>
+</head>
+
+<body>
+    <svg id="test1" style="width:100%;height:250px;border: 1px solid rgb(18, 33, 63);"></svg>
+    <canvas id="test2" style="width:100%;height:250px;border: 1px solid rgb(18, 33, 63);"></canvas>
+</body>
+<script>
+    let d1 = new Dotline({
+        container: '#test1',
+        maxLength: 130,
+        speed: 1,
+        dotSum: 100,
+        dotStyle: null,
+        mouseEffect: true,
+        mouseDistance:100,
+    }).start();
+    let d2 = new Dotline({
+        container: '#test2',
+        maxLength: 130,
+        speed: 1,
+        dotSum: 100,
+        dotStyle: null,
+        mouseEffect: true,
+        mouseDistance:100,
+    }).start();
+</script>
+
+</html>

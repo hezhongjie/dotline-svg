@@ -1,0 +1,27 @@
+{
+  "name": "dotline-svg",
+  "version": "2.0.2",
+  "description": "线条粒子效果插件",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "yarn run build:umd && yarn run build:amd && yarn run build:commonjs",
+    "build:umd": "set libraryType=umd&& webpack  --config webpack.config.js",
+    "build:amd": "set libraryType=amd&& webpack  --config webpack.config.js",
+    "build:commonjs": "set libraryType=commonjs&& webpack  --config webpack.config.js"
+  },
+  "keywords": ["svg","canvas"],
+  "author": "hezhongjie <hezhongjie132@163.com>",
+  "license": "ISC",
+  "homepage": "https://gitee.com/hezhongjie/dotline-svg#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/hezhongjie/dotline-svg.git"
+  },
+  "dependencies": {
+    "webpack": "^5.40.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^4.7.2"
+  }
+}
