@@ -6,11 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run build:umd && npm run build:amd && npm run build:commonjs",
-    "build:umd": "set libraryType=umd&& webpack  --config webpack.config.js",
-    "build:amd": "set libraryType=amd&& webpack  --config webpack.config.js",
-    "build:commonjs": "set libraryType=commonjs&& webpack  --config webpack.config.js"
+    "build:umd": "cross-env libraryType=umd  webpack  --config webpack.config.js",
+    "build:amd": "cross-env libraryType=amd  webpack  --config webpack.config.js",
+    "build:commonjs": "cross-env libraryType=commonjs  webpack  --config webpack.config.js"
   },
-  "keywords": ["svg","canvas"],
+  "keywords": [
+    "svg",
+    "canvas"
+  ],
   "author": "hezhongjie <hezhongjie132@163.com>",
   "license": "ISC",
   "homepage": "https://gitee.com/hezhongjie/dotline-svg#readme",
@@ -19,6 +22,7 @@
     "url": "https://gitee.com/hezhongjie/dotline-svg.git"
   },
   "dependencies": {
+    "cross-env": "^7.0.3",
     "webpack": "^5.40.0"
   },
   "devDependencies": {

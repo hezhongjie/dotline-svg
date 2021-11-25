@@ -1,7 +1,7 @@
 const path = require('path');
 
 let libraryType = process.env.libraryType || 'umd';
-console.log('libraryType',process.env.libraryType);
+console.log('libraryType:',process.env.libraryType);
 module.exports = {
 
     mode: 'production',
