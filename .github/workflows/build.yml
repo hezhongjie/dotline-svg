@@ -39,8 +39,13 @@ jobs:
     steps:
       - name: Run task1
         run: yarn  
+
       - name: Run task2  
-        run: yarn build  
+        run: ls node_modules
+
       - name: Run task3  
+        run: yarn build  
+
+      - name: Run task4  
         run: ls dist
 
