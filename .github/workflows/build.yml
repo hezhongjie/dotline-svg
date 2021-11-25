@@ -45,8 +45,8 @@ jobs:
       - name: 查看 node_modules
         run: ls node_modules
 
-      - name: npm build   
-        run: npm build  
+      - name: npm run build   
+        run: npm run build  
 
       - name: 查看 dist  
         run: ls dist
