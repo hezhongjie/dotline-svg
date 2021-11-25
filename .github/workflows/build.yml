@@ -43,5 +43,4 @@ jobs:
         run: yarn build  
       - name: Run task3  
         run: ls dist
-      - name: Run task4  
 
