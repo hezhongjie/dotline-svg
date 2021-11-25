@@ -27,25 +27,27 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
 
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Run task1
-        run: yarn  
+      - uses: actions/checkout@v2
 
-      - name: Run task2  
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: npm
+        run: npm install  
+
+      - name: 查看 node_modules
         run: ls node_modules
 
-      - name: Run task3  
-        run: yarn build  
+      - name: npm build   
+        run: npm build  
 
-      - name: Run task4  
+      - name: 查看 dist  
         run: ls dist
 
