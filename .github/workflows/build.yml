@@ -33,7 +33,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: node_modules
-          # key: ${{runner.os}}-npm-caches-${{hasFiles('package-lock.json')}}
+          key: ${{runner.os}}-npm-caches-${{hasFiles('../../package-lock.json')}}
 
       - name: npm install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
