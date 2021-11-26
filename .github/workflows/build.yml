@@ -26,9 +26,8 @@ jobs:
           node-version: 12.x
 
       - name: view hashFiles
-        run: |
-          echo ${{hashFiles('package-lock.json')}},
-          echo ${{hashFiles('../../package-lock.json')}}
+        run: echo ${{hashFiles('package-lock.json')}},
+        # echo ${{hashFiles('../../package-lock.json')}} 无效
 
       - name: cache node dependencies
         id: cache
