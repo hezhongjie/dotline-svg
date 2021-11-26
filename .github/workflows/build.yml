@@ -25,16 +25,21 @@ jobs:
         with:
           node-version: 12.x
 
+      - name: view file list
+        run: ls
+
       - name: cache node dependencies
         id: cache
         uses: actions/cache@1
         with:
           path: node_modules
-          key: ${{runner-os}}-npm-caches-${{hasFiles('package-lock.json')}}
+          key: ${{runner.os}}-npm-caches-${{hasFiles('package-lock.json')}}
 
       - name: npm install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
-        run: npm install  
+        run: |
+          echo This is cache-hit: ${{steps.cache.outputs.cache-hit}}.
+          npm install  
 
       - name: npm run build   
         run: npm run build  
