@@ -25,27 +25,24 @@ jobs:
         with:
           node-version: 12.x
 
-      - name: view file list
-        run: echo ${{hashFiles('package-lock.json')}}
+      - name: view hashFiles
+        run: |
+          echo ${{hashFiles('package-lock.json')}},
+          echo ${{hashFiles('../../package-lock.json')}}
 
       - name: cache node dependencies
         id: cache
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: ${{runner.os}}-npm-caches-${{ hashFiles('../../package-lock.json') }}
+          key: ${{runner.os}}-npm-caches-${{ hashFiles('package-lock.json') }}
 
       - name: show cache-hit
         run: echo ${{steps.cache.outputs.cache-hit}}
 
       - name: npm install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
-        run: |
-          echo ${{steps.cache.outputs}},
-          npm install  
+        run: npm install  
 
       - name: npm run build   
         run: npm run build  
-
-      - name: 查看 dist  
-        run: ls dist
