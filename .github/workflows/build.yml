@@ -27,19 +27,22 @@ jobs:
 
       - name: view hashFiles
         run: echo ${{hashFiles('package-lock.json')}},
-        # echo ${{hashFiles('../../package-lock.json')}} 无效
+        # echo ${{hashFiles('../../package-lock.json')}} 
+        # 文件路径以 项目根路径 为准
 
       - name: cache node dependencies
         id: cache
         uses: actions/cache@v2
         with:
-          path: node_modules
+          path: node_modules  # 需要缓存的文件的路径
           key: ${{runner.os}}-npm-caches-${{ hashFiles('package-lock.json') }}
+          # key: 缓存文件的标识
 
       - name: show cache-hit
         run: echo ${{steps.cache.outputs.cache-hit}}
 
       - name: npm install dependencies
+        # 判断是否 命中缓存 
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm install  
 
